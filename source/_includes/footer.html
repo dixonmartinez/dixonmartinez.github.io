@@ -1,0 +1,22 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+  <div class="container">
+    {%- include social.html -%}
+    <p class="txt-medium-gray">
+      <small>
+        &copy;{{ site.time | date: '%Y' }} 
+        {%- if site.author.email -%}
+          <a href="mailto:{{ site.author.email }}"> 
+            {%- if site.author.name -%}
+              {{ site.author.name | escape }}
+            {%- else -%}
+              {{ site.title | escape }}
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+        . All rights reserved. Made with 
+        <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> and ♥
+      </small>
+    </p>
+  </div>
+</footer>

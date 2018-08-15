@@ -1,0 +1,80 @@
+# Build settings
+permalink: /:categories/:title # pretty # date # /blog/:category/:title #/blog/:year/:title/
+markdown: kramdown
+highlighter: rouge
+plugins: [jekyll-paginate]
+JEKYLL_ENV: production
+
+paginate: 3
+paginate_path: "/blog/page/:num/"
+comments: true
+
+source: source
+destination: _site
+sass:
+  sass_dir: _scss
+  style: compressed # expanded
+
+# SEO settings
+title: Dixon Martinez
+description: ""
+keywords: ""
+url: https://dixonmartinez.github.io
+baseurl: ""
+
+google_analytics:
+repo: http://github.com/nandomoreirame/end2end
+disqus_shortname: "dixonjosemartinezalvarez"
+disqus_site_shortname: "nandothemes"
+
+# Author settings
+author:
+  name: Dixon Martinez
+  job: Backend Engineer
+  bio: "Entusiasta desempeño, diseño receptivo y usabilidad, siempre buscando el mejor proyecto y un buen café."
+  thumb: https://avatars2.githubusercontent.com/u/2453563?s=160&v=4 #/images/author.jpg
+  email: dixonalvarezm@gmail.com
+  url: https://dixonmartinez.github.io
+  github_username: dixonmartinez
+  twitter_username: AMartinezDixon
+  facebook_username: dixonjose.martinez
+  linkedin_username: dixon-martinez
+
+# Minima date format
+# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
+minima:
+  date_format: "%b %-d, %Y"
+
+# navbar pages
+navbar:
+  - slug: about
+    title: About
+  #- slug: icons
+   # title: Icons
+  - slug: blog
+    title: Blog
+
+exclude: ["vendor","config.rb", "src", "Gemfile", "Gemfile.lock", "package.json","README.md", "Rakefile"]
+
+
+atom:
+  buildCommand:
+    - jekyll
+    - build
+  buildEnv:
+    JEKYLL_ENV: development
+  postDirs:
+    - _posts
+  defaultPostDir: _drafts
+
+development:
+  asset_url: "http://localhost:1337/"
+  app_url: "http://localhost:3000/"
+
+staging:
+  asset_url: "https://staging.example.org/assets/"
+  app_url: "https://staging.example.org/"
+
+production:
+  asset_url:  "https://cdn.example.org/"
+  url:  "https://dixonmartinez.github.io"
