@@ -1,11 +1,3 @@
----
-layout: page
-title: Sobre Mí
-permalink: /sobremi/
-image: https://avatars2.githubusercontent.com/u/2453563?s=160&v=4
----
-
-
 Mi nombre es Dixon Martinez, soy un apasionado de la
 programación, de allí nace la necesidad de crear mi blog personal, para compartir mi conocimiento y apoyar a quienes comienzan en esta área.
 

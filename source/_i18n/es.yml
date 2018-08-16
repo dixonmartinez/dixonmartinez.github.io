@@ -1,0 +1,11 @@
+global:
+  spanish: Español
+  english: Ingles
+pages:
+  home: Inicio
+  work: Trabajo
+
+titles:
+  home: Inicio
+  about: Sobre Mí
+  blog: Blog

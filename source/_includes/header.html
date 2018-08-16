@@ -8,9 +8,11 @@
     </label>
     <nav class="navbar">
       <ul>
-        <li><a href="{{ '/' | prepend: site.baseurl }}" title="Home">Home</a></li>
+        <li><a href="{{ '/' | prepend: site.baseurl }}" title="Home">{%- t titles.home -%}</a></li>
         {% for item in site.navbar %}
-          <li><a href="{{ '/' | prepend: site.baseurl }}{{ item.slug }}" title="{{ item.title }}">{{ item.title }}</a></li>
+          {% capture title %} {{ item.slug | prepend: "titles." }} {% endcapture %}
+          {% assign title = title  | lstrip | rstrip %}
+          <li><a href="{{ '/' | prepend: site.baseurl }}{{ item.slug }}" title="{{ item.title }}">{% t title  %}</a></li>
         {% endfor %}
 
         <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}" target="_blank"><i class="icon icon-rss"></i></a></li>

@@ -13,7 +13,6 @@ gem "rake", "~>12.3.1"
 gem "sass", "~>3.5.7"
 gem "json", "~> 2"
 
-
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 gem "github-pages", group: :jekyll_plugins
@@ -27,6 +26,7 @@ group :jekyll_plugins do
   # gem 'pygments.rb', '~> 0.6.3'
   gem "jekyll-compose"
   gem "kramdown"
+  gem "jekyll-multiple-languages-plugin"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

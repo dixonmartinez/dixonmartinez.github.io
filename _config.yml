@@ -2,11 +2,16 @@
 permalink: /:categories/:title # pretty # date # /blog/:category/:title #/blog/:year/:title/
 markdown: kramdown
 highlighter: rouge
-plugins: [jekyll-paginate]
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-multiple-languages-plugin
+
 JEKYLL_ENV: production
 
+
 paginate: 3
-paginate_path: "/blog/page/:num/"
+paginate_path: "en/blog/page/:num/"
 comments: true
 
 source: source
@@ -56,6 +61,7 @@ navbar:
 
 exclude: ["vendor","config.rb", "src", "Gemfile", "Gemfile.lock", "package.json","README.md", "Rakefile"]
 
+languages: ["en", "es"]
 
 atom:
   buildCommand:
