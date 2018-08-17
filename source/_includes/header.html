@@ -16,6 +16,21 @@
         {% endfor %}
 
         <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}" target="_blank"><i class="icon icon-rss"></i></a></li>
+        {% if site.lang == "en" %}
+          {% capture link1 %} {{ site.url }}/es{{ page.url }}{% endcapture %}
+          <li>
+            <a href="{{ link1 }}" title="{% t global.spanish %}" >
+              <img src="{{ site.url }}/images/blank.gif" class="flag flag-es" alt="{% t global.spanish %}" />
+            </a>
+          </li>
+        {% elsif site.lang == "es" %}
+          {% capture link2 %} {{ site.url }}{{ page.url }}{% endcapture %}
+          <li>
+            <a href="{{ link2 }}" title="{% t global.english %}" >
+              <img src="{{ site.url }}/images/blank.gif" class="flag flag-us" alt="{% t global.english %}" />
+            </a>
+          </li>
+        {% endif %}
       </ul>
     </nav>
   </div>

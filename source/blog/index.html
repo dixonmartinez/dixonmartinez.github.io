@@ -3,9 +3,9 @@ layout: pages
 ---
 
 <section class="post-list">
-  {% for post in paginator.posts %}
-    {% include article.html %}
-  {% endfor %}
+  {%- for post in site.posts -%}
+    {%- include article.html -%}
+  {%- endfor -%}
 
-  {% include pagination.html %}
+  {%- include pagination.html -%}
 </section>

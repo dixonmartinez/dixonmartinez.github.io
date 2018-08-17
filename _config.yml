@@ -62,6 +62,15 @@ navbar:
 exclude: ["vendor","config.rb", "src", "Gemfile", "Gemfile.lock", "package.json","README.md", "Rakefile"]
 
 languages: ["en", "es"]
+defaultLang: en
+languageNames:
+  es: Spanish
+  en: English
+
+
+collections:
+  posts:
+    output: true
 
 atom:
   buildCommand:
