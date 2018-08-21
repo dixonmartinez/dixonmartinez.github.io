@@ -1,0 +1,31 @@
+---
+layout: pages
+something:
+  - foo: 1
+    bar: 1
+  - foo: 2
+    bar: 2
+
+navbart:
+  - about:
+    slug: 'sobre'
+    title: 'Sobre Mí'
+  - home:
+    slug: 'home'
+    title: 'Home'
+---
+
+Pruebas
+
+{% capture array_pages %} {%- t navbar -%} {% endcapture %}
+<br>Test1 {{ page.navbar }}<br>
+<br>Test2 {{ array_pages }} <br>
+<br>Test3 {{ array_pages }} <br>
+
+{% for item in array_pages %}
+
+  <br>Test {{ item.about }} <br>
+  <br>Test {{ item.title }} <br>
+
+  <li><a href="{{ '/' | prepend: site.baseurl }}{{ item.slug }}" title="{{ item.title }}">{{ item.title }}</a></li>
+{% endfor %}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<!--  <classpathentry kind="src" path="vendor/bundle/ruby/2.6.0/gems/eventmachine-1.2.7/java/src"/>
+	<classpathentry excluding="vendor/http-parser-java/src/test/|vendor/http-parser-java/src/impl/" kind="src" path="vendor/bundle/ruby/2.6.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser"/>
+	<classpathentry kind="src" path="vendor/bundle/ruby/2.6.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser/vendor/http-parser-java/src/impl"/>
+	<classpathentry kind="src" path="vendor/bundle/ruby/2.6.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser/vendor/http-parser-java/src/test"/>
+	<classpathentry kind="src" path="vendor/bundle/ruby/2.6.0/gems/thread_safe-0.3.6/ext"/>
+	<classpathentry kind="src" path="vendor/bundle/ruby/2.6.0/gems/thread_safe-0.3.6/spec/src"/>-->
+	<classpathentry kind="output" path="bin"/>
+</classpath>

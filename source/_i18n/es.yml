@@ -1,6 +1,27 @@
 global:
   spanish: Español
   english: Ingles
+  readmore: leer más
+  permalinkto: Link a
+  on: " en "
+  prev: " Anterior "
+  next: " Siguiente "
+  page: " Página "
+  of: " de "
+  title: Spanish
+  articles: "Artículos "
+  new: " nuevos"
+  old: " anteriores"
+
+navbar:
+  about:
+    #slug: 'sobre'
+    #title: 'Sobre Mí'
+  blog:
+    #slug: 'blog'
+    #title: 'Blog'
+
+
 pages:
   home: Inicio
   work: Trabajo
@@ -9,3 +30,11 @@ titles:
   home: Inicio
   about: Sobre Mí
   blog: Blog
+
+author:
+  job: Ingeniero
+
+bio:
+  i: " Yo soy "
+  a: " un "
+  bio: Entusiasta desempeño, diseño receptivo y usabilidad, siempre buscando el mejor proyecto y un buen café.

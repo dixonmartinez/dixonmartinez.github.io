@@ -7,12 +7,12 @@ title: titles.home
     <div class="container">
       <img src="{{ site.author.thumb | prepend: site.baseurl }}" alt="author thumb" class="dot">
       <h1>{{ site.title }}</h1>
-      <h3>I'm <strong itemprop="name">{{ site.author.name }}</strong>, a <em itemprop="jobTitle">{{ site.author.job }}</em>.</h3>
-      <h3>{{ site.author.bio }}</h3>
-      <a href="{{ '/about' | prepend: site.baseurl }}" class="button button-ghost" title="about">about</a>
-      <a href="{{ '/blog' | prepend: site.baseurl }}" class="button button-ghost" title="blog">blog</a>
+      <h3>{%- t bio.i -%} <strong itemprop="name">{{ site.author.name }}</strong>, {%- t bio.a -%}  <em itemprop="jobTitle">{%- t author.job -%}</em>.</h3>
+      <h3>{%- t bio.bio -%}</h3>
+      <a href="{{ site.baseurl_root }}{%- tl about -%}" class="button button-ghost" title="about">{%- t titles.about -%}</a>
+      <a href="{{ '/blog' | prepend: site.baseurl }}" class="button button-ghost" title="blog">{%- t titles.blog -%}</a>
       <!--<a href="{{ site.repo }}/archive/master.zip" class="button button-ghost" title="Download">Download</a>-->
-
+       {% include social.html %}
     </div>
   </div>
 </section>

@@ -11,7 +11,7 @@ JEKYLL_ENV: production
 
 
 paginate: 3
-paginate_path: "en/blog/page/:num/"
+paginate_path: "/blog/page/:num/"
 comments: true
 
 source: source
@@ -37,7 +37,7 @@ author:
   name: Dixon Martinez
   job: Backend Engineer
   bio: "Entusiasta desempeño, diseño receptivo y usabilidad, siempre buscando el mejor proyecto y un buen café."
-  thumb: https://avatars2.githubusercontent.com/u/2453563?s=160&v=4 #/images/author.jpg
+  thumb: /images/author.jpg #https://avatars2.githubusercontent.com/u/2453563?s=160&v=4
   email: dixonalvarezm@gmail.com
   url: https://dixonmartinez.github.io
   github_username: dixonmartinez

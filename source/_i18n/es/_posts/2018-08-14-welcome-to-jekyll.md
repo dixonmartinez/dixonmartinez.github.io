@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Bienvenido a Jekyll!"
 date:   2018-08-14 13:46:52
 author: Dixon Martinez
 meta: Test meta
@@ -11,6 +11,7 @@ categories: jekyll
 tag:
   update
 ---
+
 Encontrarás esta publicación en tu directorio `_posts`. Adelante, edítelo y vuelva a crear el sitio para ver sus cambios. Puede reconstruir el sitio de muchas maneras diferentes, pero la forma más común es ejecutar `jekyll serve`, que inicia un servidor web y regenera automáticamente su sitio cuando se actualiza un archivo.
 
 Para agregar nuevas publicaciones, simplemente agregue un archivo en el directorio `_posts` que sigue la convención` YYYY-MM-DD-name-of-post.ext` e incluye la información de entrada necesaria. Echa un vistazo a la fuente de esta publicación para hacerte una idea de cómo funciona.

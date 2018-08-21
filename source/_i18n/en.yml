@@ -1,6 +1,27 @@
 global:
   spanish: Spanish
   english: English
+  readmore: read more
+  permalinkto: Permalink to
+  on: " on "
+  prev: " Prev "
+  next: " Next "
+  page: " Page "
+  of: " of "
+  title: English
+  articles: "Articles "
+  new: " new"
+  old: " old"
+
+navbar:
+  about:
+    #slug: 'about'
+    #title: 'About'
+  blog:
+    #slug: 'blog'
+    #title: 'Blog'
+
+
 pages:
   home: Home
   work: Work
@@ -9,3 +30,11 @@ titles:
   home: Home
   about: About
   blog: Blog
+
+author:
+  job: Enginer
+
+bio:
+  i: " I'm "
+  a: " a "
+  bio: Enthusiast performance, responsive design and usability, always looking for the best project and good coffee.
