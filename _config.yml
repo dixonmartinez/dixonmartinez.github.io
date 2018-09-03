@@ -9,6 +9,7 @@ plugins:
 
 JEKYLL_ENV: production
 
+emptyArray: []
 
 paginate: 3
 paginate_path: "/blog/page/:num/"

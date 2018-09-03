@@ -8,22 +8,52 @@
     </label>
     <nav class="navbar">
       <ul>
-        <li><a href="{{ '/' | prepend: site.baseurl }}" title="Home">{%- t titles.home -%}</a></li>
-        {% for item in site.navbar %}
-          {% capture title %} {{ item.slug | prepend: "titles." }} {% endcapture %}
-          {% assign title = title  | lstrip | rstrip %}
-          <li><a href="{{ '/' | prepend: site.baseurl }}{{ item.slug }}" title="{{ item.title }}">{% t title  %}</a></li>
-        {% endfor %}
+        {%- for items in site.translations[site.lang]["navbar"] -%}          
+          	{%- for item in items -%} 
+          		{%- if item["slug"] == "/" -%}
+	          		<li>  
+	         			<a href='{{- "/" | prepend: site.baseurl -}}' title='{{- item["title"] -}}'> 
+	          				{{- item["title"] }}
+	          			</a>
+	        		</li>
+	        	{%- elsif item["slug"] -%}
+	        		<li>  
+	        			<a href='{{- "/" | prepend: site.baseurl -}}{{- item["slug"] -}}' title='{{- item["title"] -}}'>
+	          				{{- item["title"] }}
+	          			</a>
+	        		</li>
+        		{%- endif -%}
+     		{%- endfor -%}	
+     	{%- endfor -%}
 
         <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}" target="_blank"><i class="icon icon-rss"></i></a></li>
         {% if site.lang == "en" %}
-          {% capture link1 %} {{ site.url }}/es{{ page.url }}{% endcapture %}
+        
+        	{% capture ur %} {{ page.url | remove_first: "/" | remove_first: "/" | lstrip | rstrip }} {% endcapture %}
+        	{{ ur }}
+        	{% assign test = site.translations[site.lang]["navbar"] %}
+        	{{ test[ ur ] }}
+          {% capture link1 %} {{ site.url }}/es{%- t page.url -%}{% endcapture %}
           <li>
             <a href="{{ link1 }}" title="{% t global.spanish %}" >
               <img src="{{ site.url }}/images/blank.gif" class="flag flag-es" alt="{% t global.spanish %}" />
             </a>
           </li>
         {% elsif site.lang == "es" %}
+        
+        	{% capture ur %} {{ page.url | remove_first: "/" | remove_first: "/" | lstrip | rstrip }} {% endcapture %}
+        	{{ ur }}
+        	{%- for items in site.translations[site.lang]["navbar"] -%}          
+	          	{%- for item in items -%} 
+	          		{%- if item["slug"] -%}
+			          		Elitem {{ item["slug"]  }}<br> 
+	          			{%- if item["slug"] == {{ ur }} -%}
+			          		Elur {{ ur }}
+	          			{%- endif -%}
+	          		{%- endif -%}
+	     		{%- endfor -%}	
+     		{%- endfor -%}
+        	
           {% capture link2 %} {{ site.url }}{{ page.url }}{% endcapture %}
           <li>
             <a href="{{ link2 }}" title="{% t global.english %}" >

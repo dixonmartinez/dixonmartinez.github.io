@@ -14,12 +14,18 @@ global:
   old: " old"
 
 navbar:
+  home:
+    slug: '/'
+    title: 'Home'
+    slug_trl: 'inicio'
   about:
-    #slug: 'about'
-    #title: 'About'
+    slug: 'about'
+    title: 'About'
+    slug_trl: 'sobre'
   blog:
-    #slug: 'blog'
-    #title: 'Blog'
+    slug: 'blog'
+    title: 'Blog'
+    slug_trl: 'blog'
 
 
 pages:
@@ -38,3 +44,7 @@ bio:
   i: " I'm "
   a: " a "
   bio: Enthusiast performance, responsive design and usability, always looking for the best project and good coffee.
+  
+  
+     
+     

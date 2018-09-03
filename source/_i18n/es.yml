@@ -14,12 +14,18 @@ global:
   old: " anteriores"
 
 navbar:
+  home:
+    slug: '/'
+    title: 'Inicio'
+    slug_trl: '/'
   about:
-    #slug: 'sobre'
-    #title: 'Sobre Mí'
+    slug: 'sobre'
+    title: 'Sobre Mí'
+    slug_trl: 'about'
   blog:
-    #slug: 'blog'
-    #title: 'Blog'
+    slug: 'blog'
+    title: 'Blog'
+    slug_trl: 'blog'
 
 
 pages:
