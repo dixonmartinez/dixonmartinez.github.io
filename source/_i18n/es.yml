@@ -16,14 +16,17 @@ global:
 navbar:
   home:
     slug: '/'
+    slug_compare: '/'
     title: 'Inicio'
     slug_trl: '/'
   about:
     slug: 'sobre'
+    slug_compare: '/sobre/'
     title: 'Sobre Mí'
     slug_trl: 'about'
   blog:
     slug: 'blog'
+    slug_compare: '/blog/'
     title: 'Blog'
     slug_trl: 'blog'
 

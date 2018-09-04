@@ -27,39 +27,37 @@
      	{%- endfor -%}
 
         <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}" target="_blank"><i class="icon icon-rss"></i></a></li>
+         {{ site.lang }}
         {% if site.lang == "en" %}
-        
-        	{% capture ur %} {{ page.url | remove_first: "/" | remove_first: "/" | lstrip | rstrip }} {% endcapture %}
-        	{{ ur }}
-        	{% assign test = site.translations[site.lang]["navbar"] %}
-        	{{ test[ ur ] }}
-          {% capture link1 %} {{ site.url }}/es{%- t page.url -%}{% endcapture %}
-          <li>
-            <a href="{{ link1 }}" title="{% t global.spanish %}" >
-              <img src="{{ site.url }}/images/blank.gif" class="flag flag-es" alt="{% t global.spanish %}" />
-            </a>
-          </li>
-        {% elsif site.lang == "es" %}
-        
-        	{% capture ur %} {{ page.url | remove_first: "/" | remove_first: "/" | lstrip | rstrip }} {% endcapture %}
-        	{{ ur }}
         	{%- for items in site.translations[site.lang]["navbar"] -%}          
-	          	{%- for item in items -%} 
-	          		{%- if item["slug"] -%}
-			          		Elitem {{ item["slug"]  }}<br> 
-	          			{%- if item["slug"] == {{ ur }} -%}
-			          		Elur {{ ur }}
-	          			{%- endif -%}
+	          	{%- for item in items -%} <br>
+	          		{%- if item.slug -%}
+	          			{% if item.slug_compare  == page.url  %}
+	          				Url {{ page.url | prepend: site.baseurl }}
+							<li>
+								{%- capture url -%} {%- endcapture -%}
+					        	<a href="{{ item.slug_trl }}" title="{% t global.spanish %}" >
+					              <img src="{{ site.url }}/images/blank.gif" class="flag flag-es" alt="{% t global.spanish %}" />
+					            </a>
+				         	</li>
+	          			{% endif %}
 	          		{%- endif -%}
 	     		{%- endfor -%}	
      		{%- endfor -%}
-        	
-          {% capture link2 %} {{ site.url }}{{ page.url }}{% endcapture %}
-          <li>
-            <a href="{{ link2 }}" title="{% t global.english %}" >
-              <img src="{{ site.url }}/images/blank.gif" class="flag flag-us" alt="{% t global.english %}" />
-            </a>
-          </li>
+        {%- elsif site.lang == "es" -%}
+        	{%- for items in site.translations[site.lang]["navbar"] -%}          
+	          	{%- for item in items -%} <br>
+	          		{%- if item.slug -%}
+	          			{% if item.slug_compare  == page.url  %}
+							<li>
+					        	<a href="{{ item.slug_trl | prepend: site.baseurl | replace: 'es' }}" title="{% t global.english %}" >
+					              <img src="{{ site.url }}/images/blank.gif" class="flag flag-us" alt="{% t global.english %}" />
+					            </a>
+				         	</li>
+	          			{% endif %}
+	          		{%- endif -%}
+	     		{%- endfor -%}	
+     		{%- endfor -%}
         {% endif %}
       </ul>
     </nav>
