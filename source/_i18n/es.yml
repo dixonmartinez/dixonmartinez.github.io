@@ -12,6 +12,8 @@ global:
   articles: "Artículos "
   new: " nuevos"
   old: " anteriores"
+  and: " y "
+  rights: "Todos los derechos reservados. Hecho con "
 
 navbar:
   home:

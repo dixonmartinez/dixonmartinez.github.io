@@ -12,6 +12,8 @@ global:
   articles: "Articles "
   new: " new"
   old: " old"
+  and: " and "
+  rights: "All rights reserved. Made with "
 
 navbar:
   home:

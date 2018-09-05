@@ -4,30 +4,20 @@
     {%- include social.html -%}
     <p class="txt-medium-gray">
       <small>
-        &copy;{{ site.time | date: '%Y' }}
+        &copy;{{- site.time | date: '%Y' -}}{{ " " }}
         {%- if site.author.email -%}
           <a href="mailto:{{ site.author.email }}">
             {%- if site.author.name -%}
-              {{ site.author.name | escape }}
+              {{- site.author.name | escape -}}
             {%- else -%}
-              {{ site.title | escape }}
+              {{- site.title | escape -}}
             {%- endif -%}
           </a>
         {%- endif -%}
-        . All rights reserved. Made with
-        <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> and ♥
+        . {%- t global.rights -%}
+        <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> {%- t global.and -%} ♥
       </small>
-      {%- if site.lang == "en" -%}
-        {%- capture link1 -%} {{ site.url }}/es{{ page.url }}{%- endcapture -%}
-          <a href="{{ link1 }}" title="{% t global.spanish %}" >
-            <img src="{{ site.url }}/images/blank.gif" class="flag flag-es" alt="{% t global.spanish %}" />
-          </a>
-      {%- elsif site.lang == "es" -%}
-        {%- capture link2 -%} {{ site.url }}{{ page.url }}{%- endcapture -%}
-          <a href="{{ link2 }}" title="{% t global.english %}" >
-            <img src="{{ site.url }}/images/blank.gif" class="flag flag-us" alt="{% t global.english %}"/>
-          </a>
-      {%- endif -%}
+      {%- include translate.html -%}
     </p>
   </div>
 </footer>
