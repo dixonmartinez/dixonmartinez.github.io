@@ -1,15 +1,22 @@
+{%- assign test = true -%}
 {%- if site.lang == "en" -%}
-	{%- for items in site.translations[site.lang]["navbar"] -%}          
+	{%- for items in site.translations[site.lang]["navbar"] -%}
     	{%- for item in items -%}
     		{%- if item.slug -%}
     			{%- if item.slug_compare  == page.url -%}
 			      	<a href='{{ site.baseurl }}/es/{{ item.slug_trl }}' title="{% t global.spanish %}" >
 			            <img src="{{ site.url }}/images/blank.gif" class="flag flag-es" alt="{% t global.spanish %}" />
 			          </a>
+			           {%- assign test = false -%}
     			{%- endif -%}
     		{%- endif -%}
 		{%- endfor -%}	
 	{%- endfor -%}
+	{%- if test -%}
+		<a href='{{ site.baseurl }}/es{{ page.url }}' title="{% t global.spanish %}" >
+			<img src="{{ site.url }}/images/blank.gif" class="flag flag-es" alt="{% t global.spanish %}" />
+		</a>
+	{%- endif -%}
 {%- elsif site.lang == "es" -%}
  	{%- for items in site.translations[site.lang]["navbar"] -%}          
     	{%- for item in items -%}
@@ -18,8 +25,14 @@
 			      	<a href="{{ item.slug_trl | prepend: site.baseurl | replace: 'es' }}" title="{% t global.english %}" >
 			            <img src="{{ site.url }}/images/blank.gif" class="flag flag-us" alt="{% t global.english %}" />
 			          </a>
+			          {%- assign test = false -%}
     			{%- endif -%}
     		{%- endif -%}
 		{%- endfor -%}	
 	{%- endfor -%}
+	{%- if test -%}
+		<a href="{{ site.url | replace_first: 'es'}}{{ page.url }}" title="{% t global.spanish %}" >
+			<img src="{{ site.url }}/images/blank.gif" class="flag flag-us" alt="{% t global.english %}" />
+		</a>
+	{%- endif -%}
 {% endif %}

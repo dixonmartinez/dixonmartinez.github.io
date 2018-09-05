@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="container">
     <input type="checkbox" id="toggleNavbar">
-    <h1 class="logo"><a href="{{ "/" | prepend: site.baseurl }}"><span>{{ site.title | upcase }}</a></h1>
+    <h1 class="logo"><a href="{{ "/" | prepend: site.baseurl }}"><span>{{ site.title | upcase }}</span></a></h1>
     <label for="toggleNavbar" role="button" class="toggle-navbar-button">
       <i class="icon icon-menu"></i>
       <i class="icon icon-cross"></i>
@@ -26,7 +26,7 @@
      		{%- endfor -%}	
      	{%- endfor -%}
         <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}" target="_blank"><i class="icon icon-rss"></i></a></li>
-        {% include translate.html %}        
+	      {%- include translate.html -%}
       </ul>
     </nav>
   </div>

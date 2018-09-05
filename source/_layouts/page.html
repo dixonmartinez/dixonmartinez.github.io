@@ -5,17 +5,17 @@ layout: pages
 <article role="article" class="page card">
 
   <header class="post-header">
-    {% capture title %}{% t page.title %} {% endcapture %}
-    <h1 class="post-title">{{ title | escape }}</h1>
+    {%- capture title -%}{%- t page.title -%} {%- endcapture -%}
+    <h1 class="post-title">{{- title | escape -}}</h1>
   </header>
 
   <div class="post-content">
-    {% if page.image %}
+    {%- if page.image -%}
       <figure class="post-thumbnail {% if page.image %}{% else %}no-image{% endif %}">
         <img src="{{ page.image }}" alt="{{ title }}">
       </figure>
-    {% endif %}
-    {{ content }}
+    {%- endif -%}
+    {{- content -}}
   </div>
 
 </article>
