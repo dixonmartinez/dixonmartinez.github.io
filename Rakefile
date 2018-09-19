@@ -12,7 +12,8 @@ SOURCE = "source/"
 DEST = "_site"
 CONFIG = {
   'layouts' => File.join(SOURCE, "_layouts"),
-  'posts' => File.join(SOURCE, "_posts"),
+  'posts' => File.join(SOURCE, "_i18n/en/_posts"),
+  'posts_es' => File.join(SOURCE, "_i18n/es/_posts"),
   'post_ext' => "md",
   'categories' => File.join(SOURCE, "categories"),
   'tags' => File.join(SOURCE, "tags")
@@ -50,9 +51,60 @@ task :publish => [:generate] do
 end
 
 desc "Begin a new post in #{CONFIG['posts']}"
-task :post do
+task :post  do
   abort("rake aborted: '#{CONFIG['posts']}' directory not found.") unless FileTest.directory?(CONFIG['posts'])
-  title = ENV["title"] || "Novo post"
+  title = ENV["title"] || "New post"
+
+  tags = ""
+  categories = ""
+
+  # tags
+  env_tags = ENV["tags"] || ""
+  tags = strtag(env_tags)
+
+  # categorias
+  env_cat = ENV["category"] || ""
+  categories = strtag(env_cat)
+
+  # slug do post
+  slug = mount_slug(title)
+
+  begin
+    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
+    time = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%T')
+  rescue => e
+    puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
+    exit -1
+  end
+
+  filename = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+  end
+
+  puts "Creating new post: #{filename}"
+  open(filename, 'w') do |post|
+    post.puts "---"
+    post.puts "layout: post"
+    post.puts "title: \"#{title.gsub(/-/,' ')}\""
+    post.puts "permalink: #{slug}"
+    post.puts "date: #{date} #{time}"
+    post.puts "comments: true"
+    post.puts "description: \"#{title}\""
+    post.puts 'keywords: ""'
+    post.puts "categories:"
+    post.puts "#{categories}"
+    post.puts "tags:"
+    post.puts "#{tags}"
+    post.puts "---"
+  end
+end # task :post_es
+
+
+desc "Begin a new post es in #{CONFIG['posts_es']}"
+task :post_es do
+  abort("rake aborted: '#{CONFIG['post_es']}' directory not found.") unless FileTest.directory?(CONFIG['post_es'])
+  title = ENV["title"] || "Nuevo post"
 
   tags = ""
   categories = ""
@@ -150,3 +202,18 @@ def strtag(str_tags)
 
   return tags
 end
+
+def ask(message, valid_options)
+    if valid_options
+        answer = get_stdin("#{message} #{valid_options.to_s.gsub(/"/, '').gsub(/, /,'/')} ") while !valid_options.include?(answer)
+    else
+        answer = get_stdin(message)
+    end
+    answer
+end
+
+def get_stdin(message)
+    print message
+    STDIN.gets.chomp
+end
+
