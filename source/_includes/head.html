@@ -8,7 +8,12 @@
 
 <title>
     {%- if page.title -%}
-        {{ page.title }}
+		{%- capture titleLength -%}{%- t page.title -%}{%- endcapture -%}
+		{%- if titleLength != '' -%}	
+			{{ titleLength }}
+        {%- else -%}
+        	{{ page.title }}
+        {%- endif -%}
     {%- else -%}
         {{ site.title }}
     {%- endif -%}
