@@ -1,7 +1,0 @@
----
-layout: "post"
-title: "Test2"
-date: "2018-08-18 17:34"
----
-
-Español

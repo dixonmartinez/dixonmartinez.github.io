@@ -16,7 +16,8 @@ CONFIG = {
   'posts_es' => File.join(SOURCE, "_i18n/es/_posts"),
   'post_ext' => "md",
   'categories' => File.join(SOURCE, "categories"),
-  'tags' => File.join(SOURCE, "tags")
+  'tags' => File.join(SOURCE, "tags"),
+  'user' => "Dixon Martinez"
 }
 
 task default: %w[publish]
@@ -50,10 +51,15 @@ task :publish => [:generate] do
   end
 end
 
+
+# usage rake new_post[my-new-post] or rake new_post['my new post'] 
+# or rake new_post (defaults to "new-post")
 desc "Begin a new post in #{CONFIG['posts']}"
-task :post  do
+task :new_post, :title do |t, args|
   abort("rake aborted: '#{CONFIG['posts']}' directory not found.") unless FileTest.directory?(CONFIG['posts'])
-  title = ENV["title"] || "New post"
+  args.with_defaults(:title => 'new-post')
+  title = args.title;
+  title = title.gsub(/\b\w/){$&.upcase} 
 
   tags = ""
   categories = ""
@@ -76,8 +82,9 @@ task :post  do
     puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
     exit -1
   end
-
+  
   filename = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
@@ -86,6 +93,7 @@ task :post  do
   open(filename, 'w') do |post|
     post.puts "---"
     post.puts "layout: post"
+    post.puts "author: #{CONFIG['user']}"
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
     post.puts "permalink: #{slug}"
     post.puts "date: #{date} #{time}"
@@ -96,22 +104,32 @@ task :post  do
     post.puts "#{categories}"
     post.puts "tags:"
     post.puts "#{tags}"
+    post.puts "published: true"
     post.puts "---"
+    post.puts
+    post.puts
+    post.puts
+    post.puts "<!--more-->"
+
   end
-end # task :post_es
+end # task :new_post
 
-
-desc "Begin a new post es in #{CONFIG['posts_es']}"
-task :post_es do
-  abort("rake aborted: '#{CONFIG['post_es']}' directory not found.") unless FileTest.directory?(CONFIG['post_es'])
-  title = ENV["title"] || "Nuevo post"
-
+# usage rake new_post[my-new-post] or rake new_post['my new post'] 
+# or rake new_post (defaults to "new-post")
+desc "Begin a new post in #{CONFIG['posts_es']}"
+task :new_post_es, :title do |t, args|
+  abort("rake aborted: '#{CONFIG['posts_es']}' directory not found.") unless FileTest.directory?(CONFIG['posts_es'])
+  args.with_defaults(:title => 'nuevo-post')
+  title = args.title;
+  title = title.gsub(/\b\w/){$&.upcase} 
+  
   tags = ""
   categories = ""
 
   # tags
   env_tags = ENV["tags"] || ""
   tags = strtag(env_tags)
+
 
   # categorias
   env_cat = ENV["category"] || ""
@@ -128,7 +146,7 @@ task :post_es do
     exit -1
   end
 
-  filename = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  filename = File.join(CONFIG['posts_es'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
   if File.exist?(filename)
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
@@ -137,6 +155,7 @@ task :post_es do
   open(filename, 'w') do |post|
     post.puts "---"
     post.puts "layout: post"
+    post.puts "author: #{CONFIG['user']}"
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
     post.puts "permalink: #{slug}"
     post.puts "date: #{date} #{time}"
@@ -147,9 +166,15 @@ task :post_es do
     post.puts "#{categories}"
     post.puts "tags:"
     post.puts "#{tags}"
+    post.puts "published: true"
     post.puts "---"
+    post.puts
+    post.puts
+    post.puts
+    post.puts "<!--more-->"
+
   end
-end # task :post
+end # task :new_post_es
 
 
 desc "Create a new page."
