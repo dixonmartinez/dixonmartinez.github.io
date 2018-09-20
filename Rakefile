@@ -212,7 +212,7 @@ def mount_slug(title)
 end
 
 def str_clean(title)
-  return title.tr("ÀÁÂÃÄÅàáâãäåĀāĂăĄąÇçĆćĈĉĊċČčÐðĎďĐđÈÉÊËèéêëĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħÌÍÎÏìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀŁłÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌōŎŏŐőŔŕŖŗŘřŚśŜŝŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵÝýÿŶŷŸŹźŻżŽž", "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
+  return title.tr("Ã€Ã�Ã‚ÃƒÃ„Ã…Ã Ã¡Ã¢Ã£Ã¤Ã¥Ä€Ä�Ä‚ÄƒÄ„Ä…Ã‡Ã§Ä†Ä‡ÄˆÄ‰ÄŠÄ‹ÄŒÄ�Ã�Ã°ÄŽÄ�Ä�Ä‘ÃˆÃ‰ÃŠÃ‹Ã¨Ã©ÃªÃ«Ä’Ä“Ä”Ä•Ä–Ä—Ä˜Ä™ÄšÄ›ÄœÄ�ÄžÄŸÄ Ä¡Ä¢Ä£Ä¤Ä¥Ä¦Ä§ÃŒÃ�ÃŽÃ�Ã¬Ã­Ã®Ã¯Ä¨Ä©ÄªÄ«Ä¬Ä­Ä®Ä¯Ä°Ä±Ä´ÄµÄ¶Ä·Ä¸Ä¹ÄºÄ»Ä¼Ä½Ä¾Ä¿Å€Å�Å‚Ã‘Ã±ÅƒÅ„Å…Å†Å‡ÅˆÅ‰ÅŠÅ‹Ã’Ã“Ã”Ã•Ã–Ã˜Ã²Ã³Ã´ÃµÃ¶Ã¸ÅŒÅ�ÅŽÅ�Å�Å‘Å”Å•Å–Å—Å˜Å™ÅšÅ›ÅœÅ�ÅžÅŸÅ Å¡Å¿Å¢Å£Å¤Å¥Å¦Å§Ã™ÃšÃ›ÃœÃ¹ÃºÃ»Ã¼Å¨Å©ÅªÅ«Å¬Å­Å®Å¯Å°Å±Å²Å³Å´ÅµÃ�Ã½Ã¿Å¶Å·Å¸Å¹ÅºÅ»Å¼Å½Å¾", "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
 end
 
 def strtag(str_tags)
@@ -242,3 +242,10 @@ def get_stdin(message)
     STDIN.gets.chomp
 end
 
+desc "Execute Jekyll Serve in windows"
+task :runwindows do
+    puts '* Changing the codepage'
+    `chcp 65001`
+    puts '* Running Jekyll'
+    `bundle exec jekyll serve`
+end
