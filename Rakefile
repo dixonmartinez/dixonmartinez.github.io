@@ -24,6 +24,8 @@ task default: %w[publish]
 
 desc "Generate blog files"
 task :generate do
+  puts '* Changing the codepage'
+    `chcp 65001`
   Jekyll::Site.new(Jekyll.configuration({
     "source"      => "source/",
     "destination" => "_site",
@@ -247,5 +249,5 @@ task :runwindows do
     puts '* Changing the codepage'
     `chcp 65001`
     puts '* Running Jekyll'
-    `bundle exec jekyll serve`
+    `bundle exec jekyll serve --watch --drafts`
 end

@@ -11,6 +11,7 @@ categories: jekyll
 tag:
   update
 breack_translate: true
+addallow: true
 ---
 
 Encontrarás esta publicación en tu directorio `_posts`. Adelante, edítelo y vuelva a crear el sitio para ver sus cambios. Puede reconstruir el sitio de muchas maneras diferentes, pero la forma más común es ejecutar `jekyll serve`, que inicia un servidor web y regenera automáticamente su sitio cuando se actualiza un archivo.

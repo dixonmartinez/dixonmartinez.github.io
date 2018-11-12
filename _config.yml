@@ -33,6 +33,13 @@ repo: http://github.com/nandomoreirame/end2end
 disqus_shortname: "dixonjosemartinezalvarez"
 disqus_site_shortname: "nandothemes"
 
+# Google
+# Analytics
+google-analytics: "UA-87552605-4"
+# Adsense
+google-adsense: ca-pub-6139449870308039
+
+
 # Author settings
 author:
   name: Dixon Martinez
@@ -63,7 +70,7 @@ navbar:
 exclude: ["vendor","config.rb", "src", "Gemfile", "Gemfile.lock", "package.json","README.md", "Rakefile"]
 
 languages: ["en", "es"]
-defaultLang: en
+defaultLang: es
 languageNames:
   es: Spanish
   en: English
