@@ -8,7 +8,15 @@
     </label>
     <nav class="navbar">
       <ul>
-        {%- for items in site.translations[site.lang]["navbar"] -%}          
+				{%- if site.lang == 'en' -%}
+					{%- assign default_paths = site.navbar_en -%}
+				{% else %}
+					{%- assign default_paths = site.navbar_es -%}
+				{%- endif -%}
+				
+				{%- assign page_paths = site.translations[site.lang]["navbar"] | default: default_paths -%}
+
+        {%- for items in page_paths -%}          
           	{%- for item in items -%} 
           		{%- if item["slug"] == "/" -%}
 	          		<li>  

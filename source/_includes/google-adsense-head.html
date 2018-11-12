@@ -1,4 +1,4 @@
-{%- if site.google-adsense and jekyll.environment == 'production' and  page.addallow-%}
+{%- if site.google-adsense and jekyll.environment != 'production' and  page.addallow-%}
     <!-- adsense head -->
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>

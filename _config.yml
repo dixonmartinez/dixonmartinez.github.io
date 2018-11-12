@@ -28,7 +28,6 @@ keywords: ""
 url: "https://dixonmartinez.github.io"
 baseurl: ""
 
-google_analytics:
 repo: http://github.com/nandomoreirame/end2end
 disqus_shortname: "dixonjosemartinezalvarez"
 disqus_site_shortname: "nandothemes"
@@ -59,45 +58,45 @@ minima:
   date_format: "%b %-d, %Y"
 
 # navbar pages
-navbar:
-  - slug: about
-    title: About
-  #- slug: icons
-   # title: Icons
-  - slug: blog
-    title: Blog
+navbar_en:
+  home:
+    slug: '/'
+    slug_compare: '/'
+    title: 'Home'
+    slug_trl: 'inicio'
+  about:
+    slug: 'about'
+    slug_compare: '/about/'
+    title: 'About'
+    slug_trl: 'sobre'
+  blog:
+    slug: 'blog'
+    slug_compare: '/blog/'
+    title: 'Blog'
+    slug_trl: 'blog'
+  
+
+navbar_es:
+  home:
+    slug: '/'
+    slug_compare: '/'
+    title: 'Inicio'
+    slug_trl: '/'
+  about:
+    slug: 'sobre'
+    slug_compare: '/sobre/'
+    title: 'Sobre Mí'
+    slug_trl: 'about'
+  blog:
+    slug: 'blog'
+    slug_compare: '/blog/'
+    title: 'Blog'
+    slug_trl: 'blog'
 
 exclude: ["vendor","config.rb", "src", "Gemfile", "Gemfile.lock", "package.json","README.md", "Rakefile"]
 
-languages: ["en", "es"]
+languages: ["es", "en"]
 defaultLang: es
 languageNames:
   es: Spanish
   en: English
-
-
-collections:
-  posts:
-    output: true
-
-atom:
-  buildCommand:
-    - jekyll
-    - build
-  buildEnv:
-    JEKYLL_ENV: development
-  postDirs:
-    - _posts
-  defaultPostDir: _drafts
-
-development:
-  asset_url: "http://localhost:1337/"
-  app_url: "http://localhost:3000/"
-
-staging:
-  asset_url: "https://staging.example.org/assets/"
-  app_url: "https://staging.example.org/"
-
-production:
-  asset_url:  "https://cdn.example.org/"
-  url:  "https://dixonmartinez.github.io"
