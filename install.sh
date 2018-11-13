@@ -1,8 +1,8 @@
 #!/usr/bin/env /bin/bash
 set -e # halt script on error
 
-cd _scss/
+cd source/_sass/
 bourbon install
-cd ../
+cd ../../
 
 bundle exec jekyll build

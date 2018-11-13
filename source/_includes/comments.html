@@ -1,4 +1,4 @@
-{%- if page.comments != false and jekyll.environment != "production" -%}
+{%- if page.comments and jekyll.environment != "production" and site.disqus_site_shortname-%}
 <hr>
 
 <aside id="comments" class="disqus">
@@ -18,5 +18,6 @@
     })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </aside>
 {%- endif -%}

@@ -18,7 +18,7 @@ comments: true
 source: source
 destination: _site
 sass:
-  sass_dir: _scss
+  sass_dir: _sass
   style: compressed # expanded
 
 # SEO settings
@@ -97,6 +97,7 @@ exclude: ["vendor","config.rb", "src", "Gemfile", "Gemfile.lock", "package.json"
 
 languages: ["es", "en"]
 defaultLang: es
+translateLang: en
 languageNames:
   es: Spanish
   en: English
