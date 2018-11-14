@@ -24,6 +24,7 @@ group :jekyll_plugins do
   gem 'json', '~> 2.1'
   gem 'sass', '~> 3.7', '>= 3.7.2'
   gem 'bourbon', '~> 5.1'
+  gem 'jekyll-admin', '~> 0.8.1'
   # gem "pygments.rb"
   # gem 'pygments.rb', '~> 0.6.3'
   gem 'jekyll-compose', '~> 0.8.0'
