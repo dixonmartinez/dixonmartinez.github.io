@@ -3,6 +3,7 @@ require "rubygems"
 require "tmpdir"
 require "bundler/setup"
 require "jekyll"
+require "bourbon"
 
 # Change your GitHub reponame
 GITHUB_REPONAME = "dixonmartinez/dixonmartinez.github.io"
@@ -212,7 +213,7 @@ def mount_slug(title)
 end
 
 def str_clean(title)
-  return title.tr("À�?ÂÃÄÅàáâãäåĀ�?ĂăĄąÇçĆćĈĉĊċČ�?�?ðĎ�?�?đÈÉÊËèéêëĒēĔĕĖėĘęĚěĜ�?ĞğĠġĢģĤĥĦħÌ�?Î�?ìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀ�?łÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌ�?Ŏ�?�?őŔŕŖŗŘřŚśŜ�?ŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵ�?ýÿŶŷŸŹźŻżŽž", "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
+  return title.tr("À�?ÂÃÄÅàáâãäåĀ�?ĂăĄąÇçĆćĈĉĊċČ�?�?ðĎ�?�?đÈÉÊËèéêëĒēĔĕĖėĘęĚěĜ�?ĞğĠġĢģĤĥĦħÌ�?Î�?ìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀ�?łÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌ�?Ŏ�?�?őŔŕŖŗŘřŚśŜ�?ŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵ�?ýÿŶŷŸŹźŻżŽž", "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
 end
 
 def strtag(str_tags)
@@ -245,7 +246,7 @@ end
 desc "Execute Jekyll Serve in windows"
 task :runwindows do
     puts '* Changing the codepage'
-    `chcp 65001`
+    `chcp.com 65001`
     puts '* Running Jekyll'
     `bundle exec jekyll serve --watch --drafts`
 end

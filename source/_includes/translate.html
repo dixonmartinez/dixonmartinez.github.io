@@ -1,3 +1,4 @@
+
 {%- if site.lang == site.defaultLang -%}
   {%- if page.layout == 'post' -%}
     <a href="{{- site.baseurl -}} {{- site.translateLang | prepend: '/' -}} {{-  page.permalink_trl | prepend: '/' -}}" title="{% t global.english %}" >
@@ -6,8 +7,9 @@
   {%- elsif page.layout == 'page' -%}
     {%- for items in site.translations[site.defaultLang]["navbar"] -%}
       {%- for item in items -%}
+        {%- capture page_url -%}{{page.url | replace: 'index.html', '' }}{%- endcapture -%}
         {%- if item.slug -%}
-          {%- if item.slug_compare == page.url -%}
+          {%- if item.slug_compare == page_url -%}
             <a href="{{- site.baseurl -}} {{- site.translateLang | prepend: '/' -}} {{- item.slug_trl    | prepend: '/'  -}}" title="{% t global.english %}" >
               <img src="{{ site.url }}/images/blank.gif" class="flag flag-us" alt="{% t global.english %}" />
             </a>
@@ -23,10 +25,12 @@
       <img src="{{ site.url }}/images/blank.gif" class="flag flag-es" alt="{% t global.spanish %}" />
     </a>
   {%- elsif page.layout == 'page' -%}
+ 
     {%- for items in site.translations[site.translateLang]["navbar"] -%}
-      {%- for item in items -%}
+      {%- for item in items -%}     
+      {%- capture page_url -%}{{page.url | replace: 'index.html', '' }}{%- endcapture -%}
         {%- if item.slug -%}
-          {%- if item.slug_compare == page.url -%}
+          {%- if item.slug_compare == page_url -%}
             <a href=" {{- item.slug_trl | prepend: '/'  -}}" title="{% t global.spanish %}" >
               <img src="{{ site.url }}/images/blank.gif" class="flag flag-es" alt="{% t global.spanish %}" />
             </a>
