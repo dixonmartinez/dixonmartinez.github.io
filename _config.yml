@@ -100,6 +100,7 @@ navbar_es:
 
 exclude: ["vendor","config.rb", "src", "Gemfile", "Gemfile.lock", "package.json","README.md", "Rakefile"]
 
+include: [".well-known/brave-payments-verification.txt"]
 languages: ["es", "en"]
 defaultLang: es
 translateLang: en
