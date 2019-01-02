@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Iniciando Java</title>
+<meta name="description" content="">
+<meta charset="utf-8">
+<meta name="author" content="Dixon Martinez">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Iniciando Java">
+<meta name="twitter:description" content="
+">
+
+<meta name="twitter:image" content="/images/favicons/favicon-194x194.png" />
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Iniciando Java">
+<meta property="og:description" content="
+">
+<meta property="og:image" content="/images/favicons/favicon-194x194.png" />
+
+<link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/images/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/images/favicons/manifest.json">
+<link rel="shortcut icon" href="/images/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffc40d">
+<meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" href="/css/main.css?1546443372129284000">
+<link rel="stylesheet" href="/css/flags.min.css?1546443372129284000">
+<link rel="canonical" href="https://dixonmartinez.github.io/iniciando-java">
+<link rel="alternate" type="application/rss+xml" title="Dixon Martinez" href="/feed.xml">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"><script>
+    if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+      ga('create', 'UA-87552605-4', 'auto');
+      ga('send', 'pageview');
+    }
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-87552605-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-87552605-4');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+  <div class="container">
+    <input type="checkbox" id="toggleNavbar">
+    <h1 class="logo"><a href="/"><span>DIXON MARTINEZ</span></a></h1>
+    <label for="toggleNavbar" role="button" class="toggle-navbar-button">
+      <i class="icon icon-menu"></i>
+      <i class="icon icon-cross"></i>
+    </label>
+    <nav class="navbar">
+      <ul><li>  
+	         			<a href='/' title='Inicio'>Inicio
+	          			</a>
+	        		</li><li>  
+	        			<a href='/sobre' title='Sobre Mí'>Sobre Mí
+	          			</a>
+	        		</li><li>  
+	        			<a href='/blog' title='Blog'>Blog
+	          			</a>
+	        		</li><li><a href="/feed.xml" target="_blank"><i class="icon icon-rss"></i></a></li><a href="/en/beginning-java" title="Ingles" >
+      <img src="https://dixonmartinez.github.io/images/blank.gif" class="flag flag-us" alt="Ingles" />
+    </a></ul>
+    </nav>
+  </div>
+</header><main class="main-container">
+  <div class="container">
+    <article role="article" class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <div class="card">
+    <header class="post-header">
+      <h1 class="post-title p-name" itemprop="name headline">Iniciando Java </h1>
+      <em class="post-meta">
+        <time class="dt-published" datetime="2018-11-12T10:50:54-04:00" itemprop="datePublished">Nov 12, 2018
+          
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Dixon Martinez</span></span>
+          
+          
+        </time>
+      </em>
+    </header>
+
+    <div class="post-content e-content" itemprop="articleBody">
+      
+      <!--more-->
+
+    </div>
+	
+	<div id="share-bar">
+    <hr>
+    <h4>Share this:</h4>
+
+    <div class="share-buttons">
+        <a  href="https://www.facebook.com/sharer/sharer.php?u=https://dixonmartinez.github.io/iniciando-java"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Facebook" >
+            <i class="fab fa-facebook-f share-button"></i>
+            
+        </a>
+
+        <a  href="https://twitter.com/intent/tweet?text=Iniciando Java&url=https://dixonmartinez.github.io/iniciando-java"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Twitter" >
+            <i class="fab fa-twitter share-button"></i>
+        </a>
+
+        <a  href="https://plus.google.com/share?url=https://dixonmartinez.github.io/iniciando-java"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Google+" >
+            <i class="fab fa-google-plus share-button"></i>
+        </a>
+
+        <a  href="http://pinterest.com/pin/create/button/?url=https://dixonmartinez.github.io/iniciando-java"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Pinterest" >
+            <i class="fab fa-pinterest-p share-button"></i>
+        </a>
+
+        <a  href="http://www.tumblr.com/share/link?url=https://dixonmartinez.github.io/iniciando-java"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Tumblr" >
+            <i class="fab fa-tumblr share-button"></i>
+        </a>
+
+        <a  href="http://www.reddit.com/submit?url=https://dixonmartinez.github.io/iniciando-java"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on Reddit" >
+            <i class="fab fa-reddit-alien share-button"></i>
+        </a>
+
+        <a  href="https://www.linkedin.com/shareArticle?mini=true&url=https://dixonmartinez.github.io/iniciando-java&title=Iniciando Java&summary=Iniciando Java&source=Dixon Martinez"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            title="Share on LinkedIn" >
+            <i class="fab fa-linkedin share-button"></i>
+        </a>
+
+        <a  href="mailto:?subject=Iniciando Java&amp;body=Check out this site https://dixonmartinez.github.io/iniciando-java"
+            title="Share via Email" >
+            <i class="fa fa-envelope share-button"></i>
+        </a>
+    </div>
+
+</div>
+    <hr>
+
+<aside id="comments" class="disqus">
+  <h3><i class="icon icon-comments-o"></i> Comments</h3>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function() {
+      this.page.url = 'https://dixonmartinez.github.io/iniciando-java';
+      this.page.identifier = '/iniciando-java';
+    };
+    (function() {
+      var d = document,
+      s = d.createElement('script');
+      s.src = '//damartinez.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+  </div>
+  <a class="u-url" href="/iniciando-java" hidden></a>
+</article>
+
+  </div>
+</main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+  <div class="container"><ul class="social">
+   
+    <!-- Twitter -->
+    <li>
+      <a href="http://twitter.com/AMartinezDixon" title="@AMartinezDixonTwitter" target="_blank">
+      <i class="icon icon-twitter"></i>
+      <!--<span class="label">Twitter</span>-->
+      </a>
+    </li>
+  
+  
+    <!-- Facebook -->
+    <li>
+      <a href="https://facebook.com/dixonjose.martinez" title="dixonjose.martinezFacebook" target="_blank">
+        <i class="icon icon-facebook"></i>
+        <!--<span class="label">Facebook</span>-->
+      </a>
+    </li>
+  
+
+  
+    <!-- LinkedIn -->
+    <li>
+      <a href="https://www.linkedin.com/in/dixon-martinez" title="dixon-martinezLinkedIn" target="_blank">
+        <i class="icon icon-linkedin"></i>
+        <!--<span class="label">LinkedIn</span>-->
+      </a>
+    </li>
+  
+
+  
+    <!-- GitHub -->
+    <li>
+      <a href="https://www.github.com/dixonmartinez" title="dixonmartinezGitHub" target="_blank">
+        <i class="icon icon-github"></i>
+        <!--<span class="label">GitHub</span>-->
+      </a>
+    </li>
+  
+  
+    <!-- Email -->
+    <li>
+      <a href="mailto:dixonalvarezm@gmail.com" title="Email dixonalvarezm@gmail.com" target="_blank">
+        <i class="icon icon-mail"></i>
+        <!--<span class="label">Email</span>-->
+      </a>
+    </li>
+  
+
+  <!-- RSS -->
+  <li>
+    <a href="/feed.xml" title="Subscribe" target="_blank">
+      <i class="icon icon-rss"></i>
+      <!--<span class="label">RSS</span>-->
+    </a>
+  </li>
+
+</ul>
+<p class="txt-medium-gray">
+      <small>
+        &copy;2019 <a href="mailto:dixonalvarezm@gmail.com">Dixon Martinez</a>.Todos los derechos reservados. Hecho con <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> y ♥
+      </small>
+    </p>
+  </div>
+</footer>
+
+  <a href="http://github.com/nandomoreirame/end2end" target="_blank" class="github-corner"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#337ab7; color:#fff; position: absolute; top: 0; border: 0; right: 0;"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+</body>
+</html>

@@ -1,0 +1,4 @@
+This is a Brave Payments publisher verification file.
+
+Domain: dixonmartinez.github.io
+Token: 4873a7166072f9ee85832a3c07f7fca68d9563b517075952d6beef89a707cbf0
