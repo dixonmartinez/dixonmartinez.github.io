@@ -22,13 +22,14 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dixonmartinez.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: AMartinezDixon
-github_username:  dixonmartinez
-facebook_username: dixonjose.martinez
 github_username: dixonmartinez
+facebook_username: dixonjose.martinez
 instagram_username: adartinez
 linkedin_username: dixon-martinez
-youtube_username: channel/UCBWSP14JeZ7RWIZGX9ZXEAw
-googleplus_username: 102986034740417849624
+youtube_username: channel/UCpF1nzCQKun7ONAif-8tx4g 
+#channel/UCBWSP14JeZ7RWIZGX9ZXEAw
+
+# googleplus_username: 102986034740417849624
 disqus:
    shortname: damartinez
 
@@ -44,6 +45,8 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+  - jekyll-multiple-languages
 
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
@@ -53,7 +56,7 @@ minima:
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
+exclude:
 #   - Gemfile
 #   - Gemfile.lock
 #   - node_modules
@@ -61,3 +64,14 @@ minima:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+    - utils/*
+
+# Pagination
+paginate:       1
+paginate_path:  "/blog/page:num/"
+
+# The all languages used
+languages:          ['en', 'es']
+
+# If not config, the first item of languages will be used as the default.
+language_default:   'en'
