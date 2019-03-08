@@ -13,14 +13,38 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+# Seo 
 title: Dixon Martinez
 email: dixonalvarezm@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  My site by create tips of programing.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dixonmartinez.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+author: Dixon Martinez
+twitter:
+  username: AMartinezDixon
+  card: summary
+  creator: AMartinezDixon
+facebook:
+  username: dixonjose.martinez
+social:
+  name: Dixon Martinez
+  links:
+    - https://twitter.com/AMartinezDixon
+    - https://www.facebook.com/dixonjose.martinez
+    - https://www.linkedin.com/in/dixon-martinez
+    - https://github.com/dixonmartinez
+    - https://www.instagram.com/adartinez
+    - https://twitter.com/AMartinezDixon
+lang: en_US
+
+#defaults:
+#  - scope:
+#    path: ""
+#    values:
+#      image: /assets/images/default-card.png
+
+
 twitter_username: AMartinezDixon
 github_username: dixonmartinez
 facebook_username: dixonjose.martinez
@@ -41,13 +65,18 @@ google_adsense: ca-pub-6139449870308039
 
 
 # Build settings
+highlighter: true
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-paginate
-  - jekyll-multiple-languages
+#  - jekyll-multiple-languages
 
+# Posts Configuration
+show_excerpts: true
+permalink: pretty # /:categories/:title # pretty # date # /blog/:category/:title #/blog/:year/:title/
+comments: true
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
 minima:
@@ -56,7 +85,7 @@ minima:
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-exclude:
+#exclude:
 #   - Gemfile
 #   - Gemfile.lock
 #   - node_modules
@@ -64,14 +93,10 @@ exclude:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-    - utils/*
+#   - utils/
 
 # Pagination
-paginate:       1
-paginate_path:  "/blog/page:num/"
-
-# The all languages used
-languages:          ['en', 'es']
+paginate: 1
+paginate_path: "/blog/page:num/"
 
 # If not config, the first item of languages will be used as the default.
-language_default:   'en'

@@ -1,0 +1,6 @@
+https://github.com/eleazarbr/eleazarbr.github.io
+http://jekyll-langs.liaohuqiu.net/
+http://jekyll-langs-sample.liaohuqiu.net/
+https://blog.webjeda.com/optimize-jekyll-seo/
+https://jekyllrb.com/docs/step-by-step/08-blogging/
+https://nicolas-van.github.io/
