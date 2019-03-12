@@ -65,7 +65,7 @@ google_adsense: ca-pub-6139449870308039
 
 
 # Build settings
-highlighter: true
+highlighter: rouge
 markdown: kramdown
 theme: minima
 plugins:
