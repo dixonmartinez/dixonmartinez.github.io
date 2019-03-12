@@ -97,15 +97,22 @@
     });</script>
 
     <!-- jQuery + Fitvids, which makes all video embeds responsive -->
-    <script
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-        crossorigin="anonymous">
-    </script>
+    {%- if jekyll.environment == 'production' -%}
+		<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+		<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5ba3d9dc7e79f50011adb704&product=inline-share-buttons' async='async'></script>
+	{%- endif -%}
+	{%- if jekyll.environment != 'production' -%}
+		<script src="{{ "/assets/javascript/jquery/jquery-3.3.1.min.js" | relative_url }}"></script>
+		<script src="{{ '/assets/javascript/sharethis.js#property=5ba3d9dc7e79f50011adb704&product=inline-share-buttons'  | relative_url }}" async='async'></script>
+	{%- endif-%}
     <script type="text/javascript" src="{{ site.baseurl }}assets/js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>
-
-
+	
+	
+	
     <!-- Paginator increased to "infinit" in _config.yml -->
     <!-- if paginator.posts  -->
     <!-- <script>
