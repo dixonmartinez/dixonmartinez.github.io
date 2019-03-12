@@ -1,80 +1,188 @@
-#############################################################################
-#
-# Modified version of jekyllrb Rakefile
-# https://github.com/jekyll/jekyll/blob/master/Rakefile
-#
-#############################################################################
+# encoding: UTF-8
+require "rubygems"
+require "tmpdir"
+require "bundler/setup"
+require "jekyll"
+#require "bourbon"
 
-require 'rake'
-require 'date'
-require 'yaml'
+# Change your GitHub reponame
+GITHUB_REPONAME = "dixonmartinez/dixonmartinez.github.io"
+GITHUB_REPO_BRANCH = "master"
 
-CONFIG = YAML.load(File.read('_config.yml'))
-USERNAME = CONFIG["username"]
-REPO = CONFIG["repo"]
-SOURCE_BRANCH = CONFIG["branch"]
-DESTINATION_BRANCH = "gh-pages"
-CNAME = CONFIG["CNAME"]
+SOURCE = "source/"
+DEST = "_site"
+CONFIG = {
+  'layouts' => File.join(SOURCE, "_layouts"),
+  'posts' => File.join(SOURCE, "_posts"),
+  'post_ext' => "md",
+  #'categories' => File.join(SOURCE, "categories"),
+  #'tags' => File.join(SOURCE, "tags"),
+  'user' => "Dixon Martinez"
+}
 
-def check_destination
-  unless Dir.exist? CONFIG["destination"]
-    sh "git clone https://$GIT_NAME:$GH_TOKEN@github.com/#{USERNAME}/#{REPO}.git #{CONFIG["destination"]}"
+task default: %w[publish]
+
+desc "Generate blog files"
+task :generate do
+  Jekyll::Site.new(Jekyll.configuration({
+    "source"      => "./",
+    "destination" => "_site",
+    "config"      => "_config.yml"
+  })).process
+end
+
+desc "Generate and publish blog to gh-pages"
+task :publish => [:generate] do
+  Dir.mktmpdir do |tmp|
+    cp_r "_site/.", tmp
+
+    pwd = Dir.pwd
+    Dir.chdir tmp
+
+    system "git init"
+    system "git checkout --orphan #{GITHUB_REPO_BRANCH}"
+    system "git add ."
+    message = "Site updated at #{Time.now.utc}"
+    system "git commit -am #{message.inspect}"
+    system "git remote add origin git@github.com:#{GITHUB_REPONAME}.git"
+    system "git push origin #{GITHUB_REPO_BRANCH} --force"
+
+    Dir.chdir pwd
   end
 end
 
-namespace :site do
-  desc "Generate the site"
-  task :build do
-    check_destination
-    sh "bundle exec jekyll build"
+
+# usage rake new_post[my-new-post] or rake new_post['my new post'] 
+# or rake new_post (defaults to "new-post")
+desc "Begin a new post in #{CONFIG['posts']}"
+task :new_post, :title do |t, args|
+  abort("rake aborted: '#{CONFIG['posts']}' directory not found.") unless FileTest.directory?(CONFIG['posts'])
+  args.with_defaults(:title => 'new-post')
+  title = args.title;
+  title = title.gsub(/\b\w/){$&.upcase} 
+
+  tags = ""
+  categories = ""
+
+  # tags
+  env_tags = ENV["tags"] || ""
+  tags = strtag(env_tags)
+
+  # categorias
+  env_cat = ENV["category"] || ""
+  categories = strtag(env_cat)
+
+  # slug do post
+  slug = mount_slug(title)
+
+  begin
+    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
+    time = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%T')
+  rescue => e
+    puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
+    exit -1
+  end
+  
+  filename = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
 
-  desc "Generate the site and serve locally"
-  task :serve do
-    check_destination
-    sh "bundle exec jekyll serve"
+  puts "Creating new post: #{filename}"
+  open(filename, 'w') do |post|
+    post.puts "---"
+    post.puts "layout: post"
+    post.puts "author: #{CONFIG['user']}"
+    post.puts "title: \"#{title.gsub(/-/,' ')}\""
+    post.puts "permalink: #{slug}"
+    post.puts "date: #{date} #{time}"
+    post.puts "comments: true"
+    post.puts "description: \"#{title}\""
+    post.puts 'keywords: ""'
+    post.puts "categories:"
+    post.puts "#{categories}"
+    post.puts "tags:"
+    post.puts "#{tags}"
+    post.puts "published: true"
+    post.puts "---"
+    post.puts
+    post.puts
+    post.puts
+    post.puts "<!--more-->"
+
+  end
+end # task :new_post
+
+desc "Create a new page."
+task :page do
+  name = ENV["name"] || "new-page.md"
+  filename = File.join(SOURCE, "#{name}")
+  filename = File.join(filename, "index.html") if File.extname(filename) == ""
+  title = File.basename(filename, File.extname(filename)).gsub(/[\W\_]/, " ").gsub(/\b\w/){$&.upcase}
+  if File.exist?(filename)
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
 
-  desc "Generate the site, serve locally and watch for changes"
-  task :watch do
-    sh "bundle exec jekyll serve --watch"
-  end
+  slug = mount_slug(title)
 
-  desc "Generate the site and push changes to remote origin"
-  task :deploy do
-    # Detect pull request
-    if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
-      puts 'Pull request detected. Not proceeding with deploy.'
-      exit
+  mkdir_p File.dirname(filename)
+  puts "Creating new page: #{filename}"
+  open(filename, 'w') do |post|
+    post.puts "---"
+    post.puts "layout: page"
+    post.puts "title: \"#{title}\""
+    post.puts 'description: ""'
+    post.puts 'keywords: ""'
+    post.puts "permalink: \"#{slug}\""
+    post.puts "slug: \"#{slug}\""
+    post.puts "---"
+    post.puts "{% include JB/setup %}"
+  end
+end # task :page
+
+def mount_slug(title)
+  slug = str_clean(title)
+  slug = slug.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+
+  return slug
+end
+
+def str_clean(title)
+  return title.tr("À�?ÂÃÄÅàáâãäåĀ�?ĂăĄąÇçĆćĈĉĊċČ�?�?ðĎ�?�?đÈÉÊËèéêëĒēĔĕĖėĘęĚěĜ�?ĞğĠġĢģĤĥĦħÌ�?Î�?ìíîïĨĩĪīĬĭĮįİıĴĵĶķĸĹĺĻļĽľĿŀ�?łÑñŃńŅņŇňŉŊŋÒÓÔÕÖØòóôõöøŌ�?Ŏ�?�?őŔŕŖŗŘřŚśŜ�?ŞşŠšſŢţŤťŦŧÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųŴŵ�?ýÿŶŷŸŹźŻżŽž", "AAAAAAaaaaaaAaAaAaCcCcCcCcCcDdDdDdEEEEeeeeEeEeEeEeEeGgGgGgGgHhHhIIIIiiiiIiIiIiIiIiJjKkkLlLlLlLlLlNnNnNnNnnNnOOOOOOooooooOoOoOoRrRrRrSsSsSsSssTtTtTtUUUUuuuuUuUuUuUuUuUuWwYyyYyYZzZzZz")
+end
+
+def strtag(str_tags)
+  tags = "";
+
+  if !str_tags.nil?
+    arr_tags = str_tags.split(",")
+    arr_tags.each do |t|
+      tags = tags + "- " + t.delete(' ') + "\n"
     end
-
-    # Configure git if this is run in Travis CI
-    if ENV["TRAVIS"]
-      sh "git config --global user.name $GIT_NAME"
-      sh "git config --global user.email $GIT_EMAIL"
-      sh "git config --global push.default simple"
-    end
-
-    # Make sure destination folder exists as git repo
-    check_destination
-
-    sh "git checkout #{SOURCE_BRANCH}"
-    Dir.chdir(CONFIG["destination"]) { sh "git checkout #{DESTINATION_BRANCH}" }
-
-    # Generate the site
-    sh "bundle exec jekyll build"
-
-    # Commit and push to github
-    sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    Dir.chdir(CONFIG["destination"]) do
-      # check if there is anything to add and commit, and pushes it
-      sh "if [ -n '$(git status)' ]; then
-            echo '#{CNAME}' > ./CNAME;
-            git add --all .;
-            git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.';
-            git push --quiet origin #{DESTINATION_BRANCH};
-         fi"
-      puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
-    end
   end
+
+  return tags
+end
+
+def ask(message, valid_options)
+    if valid_options
+        answer = get_stdin("#{message} #{valid_options.to_s.gsub(/"/, '').gsub(/, /,'/')} ") while !valid_options.include?(answer)
+    else
+        answer = get_stdin(message)
+    end
+    answer
+end
+
+def get_stdin(message)
+    print message
+    STDIN.gets.chomp
+end
+
+desc "Execute Jekyll Serve in windows"
+task :runwindows do
+    puts '* Changing the codepage'
+    `chcp.com 65001`
+    puts '* Running Jekyll'
+    `bundle exec jekyll serve --watch --drafts`
 end

@@ -2,20 +2,20 @@
 markdown: kramdown
 highlighter: rouge
 paginate: 100 # it will paginate after this number
-language: 'en-uk'
+language: 'en_US'
 
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
-baseurl: 
+baseurl: /
 
 # Website info
-title: Ghost
+title: Dixon Martinez
 description: The professional publishing platform
 cover: assets/images/blog-cover.jpg
 logo: assets/images/blog-icon.png
 logo_dark: assets/images/favicon.png
 favicon: assets/images/favicon.png
-production_url: https://jekyller.github.io/jasper2/
-source_url: https://github.com/jekyller/jasper2/
+production_url: dixonmartinez.github.io
+source_url: https://github.com/dixonmartinez/dixonmartinez.github.io
 CNAME: #add cname for website to be created
 
 # Social info
@@ -27,16 +27,19 @@ twitter: tryghost # replace by your username
 facebook: ghost # replace by your username
 
 # Disqus
-disqus: False
-disqus_shortname: jekyller # replace with your disqus username
+disqus: True
+disqus_shortname: damartinez # replace with your disqus username
 
 # Google Analytics
-google_analytics: UA-69281367-1 # replace with your GA tracking identifier
+google_analytics: UA-87552605-4 # replace with your GA tracking identifier
+
+# Adsense
+google_adsense: ca-pub-6139449870308039
 
 # Permalinks
 permalink: /:title
-# permalink: /author/:author
-# permalink: /tag/:tag
+#permalink: /author/:author
+#permalink: /tag/:tag
 
 # Authors' info in `_data/authors.yml`
 # Tags' info in `_data/tags_info.yml`
@@ -68,13 +71,13 @@ feed:
 # or "master" otherwise
 safe: False
 lsi: False
-username: jekyller
-repo: jasper2
+username: dixonmartinez
+repo: dixonmartinez.github.io
 branch: master
 relative_source: ../jasper2/
-destination: ../jasper2-pages/
-production_url:  https://jekyller.github.io/jasper2/
-source_url:  https://github.com/jekyller/jasper2/
+destination: ./_site
+production_url:  https://dixonmartinez.github.io/
+source_url:  https://dixonmartinez.github.io/
 
 exclude:
   - assets/css

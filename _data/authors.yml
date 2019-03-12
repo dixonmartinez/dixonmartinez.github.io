@@ -1,11 +1,11 @@
-ghost:
-  username: ghost
-  name: Ghost
-  url_full: http://jekyller.github.io/jasper2/
-  url: jekyller.github.io/jasper2
+damartinez:
+  username: damartinez
+  name: Dixon Martinez
+  url_full: https://dixonmartinez.github.io
+  url: dixonmartinez.github.io
   bio: The professional publishing platform
   picture: assets/images/ghost.png
-  facebook: ghost
+  facebook: dixonjose.martinezalvarez
   twitter: tryghost
   cover: False
 hannah:
