@@ -1,15 +1,12 @@
-// Syntax highlighting styles, can be modified to match the theme
-
-
+/**
+ * Syntax highlighting styles
+ */
 .highlight {
+  background: #fff;
+  @extend %vertical-rhythm;
 
-  color: #111;
-
-  pre {
-    margin: 0;
-    padding: 8px 12px;
+  .highlighter-rouge & {
     background: #eef;
-    border: 1px solid #e8e8e8;
   }
 
   .c     { color: #998; font-style: italic } // Comment

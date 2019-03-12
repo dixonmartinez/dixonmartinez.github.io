@@ -2,15 +2,10 @@
 layout: default
 ---
 
-<article>
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
 
-<header>
-	<h1>{{ page.title | escape }}</h1>
-</header>
-
-<section>
-	{{ content }}
-	{% include back-to-home.html %}
-</section>
-
-</article>
+  {{ content }}
+</div>

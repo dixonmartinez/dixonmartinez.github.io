@@ -82,6 +82,11 @@ comments: true
 minima:
   date_format: "%b %-d, %Y"
   
+header_pages:
+  - index.md
+  - blog/index.html
+  - contact.md
+  - about.md
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -96,7 +101,7 @@ minima:
 #   - utils/
 
 # Pagination
-paginate: 1
+paginate: 3
 paginate_path: "/blog/page:num/"
 
 # If not config, the first item of languages will be used as the default.

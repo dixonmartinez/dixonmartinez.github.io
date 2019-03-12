@@ -1,48 +1,35 @@
-<footer class="footer mt-auto py-3">
+<footer class="site-footer h-card">
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
-  <div class="container-fluid text-center">
-	<h2 class="h5 mb-3">{{ site.title | escape }}</h2>
-	<hr>
-	<div class="row">
-		<div class="col-sm-6" >
-			<div class="container-fluid">
-				<div class="text-center">
-					<ul class="list-unstyled">
-						<li class="p-name">
-							{%- if site.author -%}
-							  {{ site.author | escape }}
-							{%- else -%}
-							  {{ site.title | escape }}
-							{%- endif -%}
-						</li>
-						{%- if site.email -%}
-							<li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-						{%- endif -%}
-					</ul>
-				</div>
-			</div>
+<div class="wrapper">
+
+	<h2 class="footer-heading">{{ site.title | escape }}</h2>
+
+	<div class="footer-col-wrapper">
+		<div class="footer-col footer-col-1" >
+			<ul class="list-unstyled">
+				<li class="p-name">
+					{%- if site.author -%}
+					  {{ site.author | escape }}
+					{%- else -%}
+					  {{ site.title | escape }}
+					{%- endif -%}
+				</li>
+				{%- if site.email -%}
+					<li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+				{%- endif -%}
+			</ul>
 		</div>
-		<div class="col-sm-6" >
-			<div class="container-fluid">
-				<div class="text-center">
-					<div class="sharethis-inline-follow-buttons"></div>
-				</div>
-			</div>
+		<div class="footer-col footer-col-2" >
+			<div class="sharethis-inline-follow-buttons"></div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="container-fluid" >
-			<div class="text-center">
-				<p>{{- site.description | escape -}}</p>
-				<p>
-					<a href="https://nicolas-van.github.io/bootstrap-4-github-pages/">Powered by Bootstrap 4 Github Pages</a>
-				</p>
-			</div>
+		<div class="footer-col footer-col-3">
+			<p>{{- site.description | escape -}}</p>
+			<p>
+				<a href="https://nicolas-van.github.io/bootstrap-4-github-pages/">Powered by Bootstrap 4 Github Pages</a>
+			</p>
 		</div>
 	</div>
-  </div>
+</div>
 
 </footer>
-
-
