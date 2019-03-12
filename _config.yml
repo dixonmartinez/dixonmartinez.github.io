@@ -75,7 +75,7 @@ username: dixonmartinez
 repo: dixonmartinez.github.io
 branch: master
 relative_source: ../jasper2/
-destination: ./_site
+destination: _site
 production_url:  https://dixonmartinez.github.io/
 source_url:  https://dixonmartinez.github.io/
 
